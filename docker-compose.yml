@@ -1,0 +1,10 @@
+services:
+  caigao-tizilai:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: caigao-tizilai:latest
+    container_name: caigao-tizilai
+    restart: unless-stopped
+    ports:
+      - "8080:80"
