@@ -1,39 +1,78 @@
 # 才高题自来
 
-面向移动端的 AI 面试题训练 H5 Demo。
+`才高题自来` 是一款面向移动端的 AI 面试题训练 H5 Demo。项目围绕“AI 提示词工程师”岗位测试题完成，从应用名、产品定位、PRD、交互流程到前端实现形成一套完整交付。
 
-本项目用于 AI 提示词工程师岗位测试题，展示如何使用 AI 将指定应用名“才高题自来”落地为一款有完整用户路径的工具类产品。
+核心体验：
 
-## 产品定位
+- 根据岗位、难度、题型生成训练题单。
+- 支持单选题、问答题、场景题混合练习。
+- 完成练习后生成得分、薄弱能力、追问样例和复习建议。
+- 使用 localStorage 保存历史练习和收藏题。
+- 面向 Android / iOS 常见手机宽度做移动端 H5 适配。
 
-才高题自来是一款面向求职者和学习者的 AI 题目生成与训练工具。用户选择岗位、难度和题型后，系统会生成专属题单，并提供答题、评分、追问建议、复习建议和历史记录。
+## 项目结构
 
-核心演示路径：
+```text
+.
+├── docs/
+│   ├── PRD.md
+│   └── screenshots/
+│       ├── home-mobile.png
+│       ├── generate-mobile.png
+│       ├── practice-mobile.png
+│       ├── result-mobile.png
+│       └── mine-mobile.png
+├── scripts/
+│   └── verify-demo.cjs
+├── src/
+│   ├── app/
+│   │   └── App.tsx
+│   ├── components/
+│   │   ├── BottomNav.tsx
+│   │   ├── BrandHeader.tsx
+│   │   ├── Field.tsx
+│   │   └── Metric.tsx
+│   ├── data/
+│   │   ├── practiceOptions.ts
+│   │   └── questionBank.ts
+│   ├── features/
+│   │   ├── generator/
+│   │   ├── home/
+│   │   ├── practice/
+│   │   └── profile/
+│   ├── lib/
+│   │   ├── practiceEngine.ts
+│   │   └── storage.ts
+│   ├── styles/
+│   │   ├── app.css
+│   │   └── global.css
+│   ├── types/
+│   │   └── practice.ts
+│   └── main.tsx
+├── package.json
+└── vite.config.ts
+```
 
-1. 进入首页。
-2. 选择“AI 提示词工程师”训练方向。
-3. 生成面试冲刺题单。
-4. 完成单选题、问答题和场景题。
-5. 查看 AI 复盘报告。
-6. 在“我的”页面查看历史记录。
+目录分层说明：
+
+- `docs/`：PRD 和最终演示截图。
+- `src/app/`：应用入口和页面状态编排。
+- `src/components/`：跨页面复用的 UI 组件。
+- `src/data/`：题库、选项、生成步骤等静态产品数据。
+- `src/features/`：按业务页面拆分的功能模块。
+- `src/lib/`：评分、生成题单、日期格式化、本地存储等业务逻辑。
+- `src/styles/`：全局样式与移动端界面样式。
+- `src/types/`：核心 TypeScript 类型定义。
 
 ## 技术栈
 
 - React
 - TypeScript
 - Vite
-- CSS 变量与原生 CSS
-- localStorage 本地持久化
-- Playwright 本地验证
-
-## 为什么使用纯前端
-
-本次题目要求是 H5 产品 Demo，重点是移动端产品完成度、AI 使用过程和可演示体验。因此 MVP 采用纯前端实现：
-
-- Mock AI 生成题单和评分，确保演示稳定。
-- localStorage 保存练习记录、收藏题和错题沉淀。
-- 不在前端暴露任何真实 AI API Key。
-- 后续如需接入真实大模型，可增加后端代理接口。
+- lucide-react
+- CSS variables
+- localStorage
+- Playwright
 
 ## 本地运行
 
@@ -42,13 +81,13 @@ npm install
 npm run dev
 ```
 
-默认访问：
+默认访问地址：
 
 ```text
 http://127.0.0.1:5173/
 ```
 
-## 构建检查
+## 质量检查
 
 ```bash
 npm run lint
@@ -63,33 +102,39 @@ npm run build
 npm run dev -- --host 127.0.0.1 --port 5173
 ```
 
-再运行：
+再运行自动演示脚本：
 
 ```bash
-node scripts/verify-demo.cjs
+npm run verify:demo
 ```
 
-脚本会自动完成：
+验证脚本会自动完成：
 
-- 打开首页
-- 进入生成页
-- 生成题单
-- 完成 5 道题
-- 进入结果页
-- 查看历史记录
+- 打开首页。
+- 进入生成页。
+- 生成 AI 提示词工程师题单。
+- 完成 5 道题。
+- 查看结果复盘。
+- 查看历史记录。
 
-截图会输出到：
+脚本生成的临时截图会输出到 `artifacts/`，该目录不提交到仓库。正式演示截图保存在 `docs/screenshots/`。
 
-```text
-artifacts/
-```
+## 交付材料
 
-## 交付材料建议
+- 产品需求文档：[docs/PRD.md](docs/PRD.md)
+- 首页截图：[docs/screenshots/home-mobile.png](docs/screenshots/home-mobile.png)
+- 生成页截图：[docs/screenshots/generate-mobile.png](docs/screenshots/generate-mobile.png)
+- 答题页截图：[docs/screenshots/practice-mobile.png](docs/screenshots/practice-mobile.png)
+- 结果页截图：[docs/screenshots/result-mobile.png](docs/screenshots/result-mobile.png)
+- 我的页截图：[docs/screenshots/mine-mobile.png](docs/screenshots/mine-mobile.png)
 
-建议最终提交或展示时包含：
+## 实现边界
 
-- `PRD.md`：产品需求文档。
-- 产品 Demo 截图：`artifacts/home-mobile-final.png`、`artifacts/generate-mobile.png`、`artifacts/practice-mobile.png`、`artifacts/result-mobile.png`、`artifacts/mine-mobile.png`。
-- AI 使用过程截图或录屏：保留需求分析、PRD、代码实现、问题修复、浏览器验证过程。
-- 可运行项目代码。
-- 如有时间，可部署到 Vercel、Netlify 或 GitHub Pages，提供测试链接。
+当前版本是纯前端 H5 Demo：
+
+- 使用 Mock AI 流程模拟生成题单和评分复盘。
+- 使用 localStorage 保存练习记录和收藏题。
+- 不在前端暴露任何真实 AI API Key。
+- 不申请摄像头、定位、通讯录、相册、麦克风等敏感权限。
+
+如果后续要接入真实大模型，应增加后端代理接口，由服务端保存 API Key 并负责内容安全、频率限制和日志脱敏。

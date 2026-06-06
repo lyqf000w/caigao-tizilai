@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "verify:demo": "node scripts/verify-demo.cjs"
   },
   "dependencies": {
     "lucide-react": "^1.17.0",

@@ -1,7 +1,10 @@
 const { chromium } = require('playwright')
+const fs = require('fs')
 const path = require('path')
 
 async function main() {
+  fs.mkdirSync('artifacts', { recursive: true })
+
   const browser = await chromium.launch({ headless: true })
   const page = await browser.newPage({
     viewport: { width: 375, height: 812 },
