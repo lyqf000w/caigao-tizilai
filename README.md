@@ -119,15 +119,6 @@ npm run verify:demo
 
 脚本生成的临时截图会输出到 `artifacts/`，该目录不提交到仓库。正式演示截图保存在 `docs/screenshots/`。
 
-## 交付材料
-
-- 产品需求文档：[docs/PRD.md](docs/PRD.md)
-- 首页截图：[docs/screenshots/home-mobile.png](docs/screenshots/home-mobile.png)
-- 生成页截图：[docs/screenshots/generate-mobile.png](docs/screenshots/generate-mobile.png)
-- 答题页截图：[docs/screenshots/practice-mobile.png](docs/screenshots/practice-mobile.png)
-- 结果页截图：[docs/screenshots/result-mobile.png](docs/screenshots/result-mobile.png)
-- 我的页截图：[docs/screenshots/mine-mobile.png](docs/screenshots/mine-mobile.png)
-
 ## 实现边界
 
 当前版本是纯前端 H5 Demo：
