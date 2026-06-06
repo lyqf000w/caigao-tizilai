@@ -1,0 +1,61 @@
+:root {
+  --paper: #fff8e9;
+  --paper-deep: #f0e3c3;
+  --ink: #13231c;
+  --text: #5e665f;
+  --muted: #81877e;
+  --green: #173d2d;
+  --accent: #f5d84b;
+  --line: rgba(23, 61, 45, 0.16);
+  font-family:
+    'Noto Serif SC',
+    'Source Han Serif SC',
+    'Microsoft YaHei',
+    'PingFang SC',
+    serif;
+  color: var(--text);
+  background: var(--paper);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--paper);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100svh;
+  margin: 0;
+}
+
+body,
+button,
+input,
+textarea {
+  letter-spacing: 0;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+p,
+h1,
+h2,
+h3 {
+  margin-top: 0;
+}
+
+#root {
+  min-height: 100svh;
+}
